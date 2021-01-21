@@ -16,7 +16,7 @@ var app = express();
 //Helmet 是一个中间件包，可以通过设置适当的 HTTP 标头，来帮助保护您的应用，免受一些众所周知的 Web 漏洞的影响
 app.use(helmet());
 
-const mongoDB = 'mongodb+srv://zhengerkui:zhengerkui@cluster0.mdbxe.mongodb.net/test?retryWrites=true&w=majority';
+const mongoDB = process.env.MONGODB_URI || 'mongodb+srv://zhengerkui:****@cluster0.mdbxe.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
